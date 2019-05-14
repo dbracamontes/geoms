@@ -38,7 +38,7 @@ public class CityController {
 		City city = optional.isPresent() ? optional.get() : null;
 		HttpStatus status = optional.isPresent() ?  HttpStatus.OK : HttpStatus.NOT_FOUND;
 		
-		return new ResponseEntity<City> (city,status);
+		return new ResponseEntity<> (city,status);
 	} 
 	
 	@GetMapping("/name/{name}")

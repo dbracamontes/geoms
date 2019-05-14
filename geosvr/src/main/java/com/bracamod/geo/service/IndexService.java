@@ -21,7 +21,7 @@ public class IndexService {
 			elasticSearchTemplate.createIndex(INDEX_NAME);
 		}
 		
-		List<IndexQuery> queries = new ArrayList<IndexQuery>();
+		List<IndexQuery> queries = new ArrayList<>();
 	}
 	
 }
