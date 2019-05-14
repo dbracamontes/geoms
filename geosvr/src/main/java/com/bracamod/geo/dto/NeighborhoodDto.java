@@ -1,6 +1,6 @@
 package com.bracamod.geo.dto;
 
-public class Neighborhood {
+public class NeighborhoodDto {
 	private Long id;
 	private String name;
 	private String zipCode;
@@ -9,7 +9,7 @@ public class Neighborhood {
 	/**
 	 * 
 	 */
-	public Neighborhood() {
+	public NeighborhoodDto() {
 		super();
 	}
 

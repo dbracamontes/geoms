@@ -46,8 +46,9 @@ public class CityController {
 	public ResponseEntity<List<City>> getCityByName(@PathVariable String name){
 		Optional<List<City>> optional = cityService.findByName(name);
 		HttpStatus status = optional.isPresent() ?  HttpStatus.OK : HttpStatus.NOT_FOUND;
+		List<City> cities = optional.isPresent() ? optional.get() : null;
 		
-		return new ResponseEntity<List<City>> (optional.get(),status);
+		return new ResponseEntity<List<City>>(cities,status);
 	} 
 
 }

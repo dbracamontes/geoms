@@ -37,7 +37,7 @@ public class NeighborhoodController {
 		Neighborhood neighborhood = optional.isPresent() ? optional.get() : null;
 		HttpStatus httpStatus = optional.isPresent() ? HttpStatus.OK : HttpStatus.NO_CONTENT;
 		
-		return new ResponseEntity<Neighborhood>(neighborhood,httpStatus);		
+		return new ResponseEntity<>(neighborhood,httpStatus);		
 	}
 	
 }

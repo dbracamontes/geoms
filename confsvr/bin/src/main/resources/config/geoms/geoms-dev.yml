@@ -17,27 +17,11 @@ info.app.version: 1.0.0
 management.endpoint.metrics.enabled: true
 management.endpoint.httptrace.enabled: true
 management.endpoint.health.show-details: always
-management.endpoints.web.exposure.include: health,info,metrics,httptrace
+management.endpoints.web.exposure.include: health,info,metrics,httptrace,metrics
 management.endpoints.web.cors.allowed-origins: http://localhost:3000
 management.endpoints.web.cors.allowed-methods: GET,POST
-env: prod
+env: dev
 spring.data.elasticsearch.repositories.enabled: true
 spring.data.elasticsearch.cluster-nodes: 192.168.99.100:9200
 spring.data.elasticsearch.repositories.enabled: true
 spring.data.elasticsearch.properties.node.local: true
-
-#logging config
-logging:
-  level:
-    root: ERROR
-    org.springframework.web: ERROR
-    com.howtodoinjava: DEBUG
-    org.hibernate: ERROR
-logging:
-    pattern:
-        console: \%d{yyyy-MM-dd HH:mm:ss} - %msg%n
-        file: \%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n
-spring:
-    output:
-    ansi:
-        enabled: DETECT

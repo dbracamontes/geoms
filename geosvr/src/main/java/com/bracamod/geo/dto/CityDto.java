@@ -5,7 +5,7 @@ import java.util.List;
 public class CityDto {
 	private Long id;
 	private String name;
-	private List<Neighborhood> neigborhoods;
+	private List<NeighborhoodDto> neigborhoods;
 	
 	/**
 	 * 
@@ -30,11 +30,11 @@ public class CityDto {
 		this.name = name;
 	}
 
-	public List<Neighborhood> getNeigborhoods() {
+	public List<NeighborhoodDto> getNeigborhoods() {
 		return neigborhoods;
 	}
 
-	public void setNeigborhoods(List<Neighborhood> neigborhoods) {
+	public void setNeigborhoods(List<NeighborhoodDto> neigborhoods) {
 		this.neigborhoods = neigborhoods;
 	}
 

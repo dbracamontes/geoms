@@ -1,13 +1,17 @@
 package com.bracamod.geo.entity;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Index;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -21,9 +25,12 @@ public class City {
 	@Column(name = "name")
 	private String name;
 
-	@ManyToOne
+	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "id_state")
 	private State state;
+	
+	@OneToMany(mappedBy = "city", fetch = FetchType.LAZY)
+	private List<Neighborhood> neighborhoods;
 
 	public Long getId() {
 		return id;
@@ -39,6 +46,37 @@ public class City {
 
 	public void setName(String name) {
 		this.name = name;
+	}
+	
+
+	/**
+	 * @return the state
+	 */
+	public State getState() {
+		return state;
+	}
+
+	/**
+	 * @param state the state to set
+	 */
+	public void setState(State state) {
+		this.state = state;
+	}
+	
+	
+
+	/**
+	 * @return the neighborhoods
+	 */
+	public List<Neighborhood> getNeighborhoods() {
+		return neighborhoods;
+	}
+
+	/**
+	 * @param neighborhoods the neighborhoods to set
+	 */
+	public void setNeighborhoods(List<Neighborhood> neighborhoods) {
+		this.neighborhoods = neighborhoods;
 	}
 
 	@Override
