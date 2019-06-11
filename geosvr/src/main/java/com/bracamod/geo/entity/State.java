@@ -12,6 +12,8 @@ import javax.persistence.Index;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 @Table(name = "state", indexes = { @Index(name = "idx_stateId", columnList = "id") })
 public class State {
@@ -23,6 +25,7 @@ public class State {
 	@Column(name = "name")
 	private String name;
 	
+	@JsonIgnore
 	@OneToMany(mappedBy = "state" ,fetch = FetchType.LAZY)
 	private List<City> cities;
 

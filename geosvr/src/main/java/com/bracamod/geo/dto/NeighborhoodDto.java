@@ -3,7 +3,7 @@ package com.bracamod.geo.dto;
 public class NeighborhoodDto {
 	private Long id;
 	private String name;
-	private String zipCode;
+	private int zipCode;
 	private String type;
 	
 	/**
@@ -29,11 +29,11 @@ public class NeighborhoodDto {
 		this.name = name;
 	}
 
-	public String getZipCode() {
+	public int getZipCode() {
 		return zipCode;
 	}
 
-	public void setZipCode(String zipCode) {
+	public void setZipCode(int zipCode) {
 		this.zipCode = zipCode;
 	}
 

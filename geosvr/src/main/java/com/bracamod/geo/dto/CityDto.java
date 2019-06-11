@@ -1,6 +1,10 @@
 package com.bracamod.geo.dto;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
+
+import com.bracamod.geo.entity.City;
 
 public class CityDto {
 	private Long id;
@@ -13,7 +17,7 @@ public class CityDto {
 	public CityDto() {
 		super();
 	}
-
+	
 	public Long getId() {
 		return id;
 	}

@@ -2,6 +2,11 @@ package com.bracamod.geo.dto;
 
 import java.util.List;
 
+/**
+ * 
+ * @author daniel
+ *
+ */
 public class StateDto {
 
 	private Long id;

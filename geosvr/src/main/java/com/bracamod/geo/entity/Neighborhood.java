@@ -11,6 +11,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 @Table(name = "neighborhood", indexes = { @Index(name="idx_neighborId",columnList="id")}
 		)
@@ -25,10 +27,12 @@ public class Neighborhood {
 	@Column(name="zip_code")
 	private int zipCode;
 	
+	@JsonIgnore
 	@ManyToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name="id_city")
 	private City city;
 	
+	@JsonIgnore
 	@ManyToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name="id_settlement_type")
 	private UrbanSettlement urbanSettlementType;

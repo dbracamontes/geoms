@@ -7,7 +7,7 @@ spring:
     config:
       server:
         native:
-          search-locations: file:///C:\Users\danie\Documents\workspace-sts-3.9.4.RELEASE\Confsvr\src\main\resources\config\geoms
+          search-locations: file:///C:\Users\daniel\git\geoms\confsvr\src\main\resources\config\geoms
 
 
   

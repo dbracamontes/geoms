@@ -7,6 +7,11 @@ import org.springframework.data.elasticsearch.core.ElasticsearchTemplate;
 import org.springframework.data.elasticsearch.core.query.IndexQuery;
 import org.springframework.stereotype.Service;
 
+/**
+ * 
+ * @author daniel
+ *
+ */
 @Service
 public class IndexService {
 
