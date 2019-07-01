@@ -12,7 +12,11 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.test.context.junit4.SpringRunner;
+
+import com.bracamod.geo.dto.StateDto;
 import com.bracamod.geo.entity.Neighborhood;
+import com.bracamod.geo.entity.State;
+import com.bracamod.geo.index.converter.StateConverterImpl;
 import com.bracamod.geo.jpa.repository.NeighborhoodRepository;
 import com.bracamod.geo.jpa.repository.StateRepository;
 
@@ -27,6 +31,9 @@ public class GeoApplicationTests {
 
 	@Autowired
 	private NeighborhoodRepository neighborhoodRepository;
+	
+	@Autowired
+	private StateConverterImpl stateConverter;
 
 	@Ignore
 	public void contextLoads() {
@@ -46,7 +53,7 @@ public class GeoApplicationTests {
 		}
 	}
 
-	@Ignore
+	@Test
 	public void getNeighborByName() {
 		try {
 			List<Neighborhood> neighborhood = neighborhoodRepository.findNeighborByName("Agua Clara");
@@ -71,4 +78,16 @@ public class GeoApplicationTests {
 		}
 
 	}
+	
+	@Test
+	public void testStateConverter() {
+		Optional<State> state = stateRepository.findById(1L);
+		StateDto stateDto = stateConverter.convert(state.get());
+		
+		System.out.println(stateDto);
+		
+	}
+	
+	
+	
 }

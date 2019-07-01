@@ -48,7 +48,7 @@ public class CityController {
 		HttpStatus status = optional.isPresent() ?  HttpStatus.OK : HttpStatus.NOT_FOUND;
 		List<City> cities = optional.isPresent() ? optional.get() : null;
 		
-		return new ResponseEntity<List<City>>(cities,status);
+		return new ResponseEntity<>(cities,status);
 	} 
 
 }

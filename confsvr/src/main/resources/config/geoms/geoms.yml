@@ -21,8 +21,10 @@ management.endpoints.web.exposure.include: health,info,metrics,httptrace
 management.endpoints.web.cors.allowed-origins: http://localhost:3000
 management.endpoints.web.cors.allowed-methods: GET,POST
 env: default
+
+# Local Elasticsearch config
 spring.data.elasticsearch.repositories.enabled: true
-spring.data.elasticsearch.cluster-nodes: localhost:9200
+spring.data.elasticsearch.cluster-nodes: localhost:9300
 spring.data.elasticsearch.cluster-name: docker-cluster
 
 #logging config

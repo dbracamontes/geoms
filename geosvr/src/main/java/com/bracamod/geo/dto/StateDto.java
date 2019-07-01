@@ -2,17 +2,24 @@ package com.bracamod.geo.dto;
 
 import java.util.List;
 
+import org.springframework.data.elasticsearch.annotations.Document;
+import org.springframework.data.elasticsearch.annotations.Field;
+import org.springframework.data.elasticsearch.annotations.FieldType;
+
 /**
  * 
  * @author daniel
  *
  */
+@Document(indexName = "geo_index", type = "state_type", shards = 1, replicas = 0)
 public class StateDto {
 
 	private Long id;
 	private String name;
+
+	@Field(type = FieldType.Nested, includeInParent = true)
 	private List<CityDto> cities;
-	
+
 	/**
 	 * 
 	 */
@@ -66,5 +73,5 @@ public class StateDto {
 	public String toString() {
 		return "StateDto [id=" + id + ", name=" + name + ", cities=" + cities + "]";
 	}
-	
+
 }
