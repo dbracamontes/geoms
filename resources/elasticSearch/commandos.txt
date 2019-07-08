@@ -10,3 +10,6 @@ $ docker-compose up
 
 
 http://192.168.99.100:9200/
+
+
+docker exec -it 95708ebb950f  bash open termional de un contenedor que esta corriendo
