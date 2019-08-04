@@ -13,12 +13,12 @@ import com.bracamod.geo.service.IndexService;
 @Component
 public class AppLoader implements CommandLineRunner {
 
-    @Autowired
-    IndexService indexService;
+   /* @Autowired
+    IndexService indexService;*/
 	
 	@Override
 	public void run(String... args) throws Exception {
-		indexService.builkIndex();		
+		// indexService.builkIndex();		
 	}
 
 }

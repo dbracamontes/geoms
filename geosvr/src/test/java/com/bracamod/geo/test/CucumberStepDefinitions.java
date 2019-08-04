@@ -1,13 +1,11 @@
 package com.bracamod.geo.test;
 
-import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
+import org.springframework.test.context.ContextConfiguration;
+import com.bracamod.GeoApplication;
 
-// @RunWith(SpringRunner.class)
-@SpringBootTest
-@EnableJpaRepositories("com.bracamod.geo.jpa.repository")
-@EntityScan("com.bracamod.geo.entity")
+@ContextConfiguration(classes = { GeoApplication.class })
+// @SpringBootTest
 public abstract class CucumberStepDefinitions {
  
 }

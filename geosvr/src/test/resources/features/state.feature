@@ -1,13 +1,10 @@
-Feature: Bag functionalities
+Feature: State Dao Feature
  
-  Scenario: Putting one thing in the bag
-    Given the bag is empty
-    When I put 1 potato in the bag
-    Then the bag should contain only 1 potato
- 
-  Scenario: Putting few things in the bag
-    Given the bag is empty
-    When I put 1 potato in the bag
-    And I put 2 cucumber in the bag
-    Then the bag should contain 1 potato
-    And the bag should contain 2 cucumber
+  Scenario: Calling find method
+    When: the client calls state find by
+    Then: the client receives response status
+    
+#    Examples:
+#    |id|responseCode|
+#    |1|200|
+#    |0|404|

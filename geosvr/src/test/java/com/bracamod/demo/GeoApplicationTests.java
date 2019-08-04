@@ -35,7 +35,7 @@ public class GeoApplicationTests {
 	@Autowired
 	private StateConverterImpl stateConverter;
 
-	@Ignore
+	@Test
 	public void contextLoads() {
 		System.out.println(stateRepository.findAll());
 	}

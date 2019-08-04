@@ -2,6 +2,9 @@ package com.bracamod.geo.service;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.elasticsearch.core.ElasticsearchTemplate;
 import org.springframework.data.elasticsearch.core.query.IndexQuery;
@@ -25,6 +28,7 @@ public class IndexService {
 	private static final String INDEX_NAME = "geo_index";
 	private static final String STATE_INDEX_TYPE = "state_type";
 	private static final int INDEX_COMMIT_SIZE = 0;
+	private final Logger log = LoggerFactory.getLogger(this.getClass());
 
 	@Autowired
 	ElasticsearchTemplate elasticSearchTemplate;
@@ -51,8 +55,6 @@ public class IndexService {
 			String stateJson;
 			try {
 				stateJson = obj.writeValueAsString(stateDto);
-
-				System.out.print(stateJson);
 				IndexQuery indexQuery = new IndexQuery();
 				indexQuery.setId(state.getId().toString());
 				indexQuery.setIndexName(INDEX_NAME);
@@ -66,8 +68,7 @@ public class IndexService {
 				}
 
 			} catch (JsonProcessingException e) {
-				stateJson = "";
-				e.printStackTrace();
+				log.error(e.getMessage());
 			}
 		}
 		
@@ -75,7 +76,7 @@ public class IndexService {
 			elasticSearchTemplate.bulkIndex(queries);
 		
 		elasticSearchTemplate.refresh(INDEX_NAME);
-        System.out.println("bulkIndex completed.");
+		log.info("bulkIndex completed.");
 	}
 
 }

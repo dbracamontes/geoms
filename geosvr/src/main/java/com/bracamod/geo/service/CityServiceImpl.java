@@ -18,6 +18,12 @@ public class CityServiceImpl implements CityService {
 
 	@Autowired
 	private CityRepository cityRepository;
+	private static Random random;
+	
+	static {
+		random = new Random();
+	}
+	 
 
 	@Override
 	// @HystrixCommand
@@ -27,7 +33,6 @@ public class CityServiceImpl implements CityService {
 	}
 
 	private void randomlyRunLong() {
-		Random random = new Random();
 		int randomNum = random.nextInt((3 - 1) + 1) + 1;
 
 		if (randomNum == 3) {

@@ -1,34 +1,30 @@
 package com.bracamod.geo.features;
 
-import java.util.Optional;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import com.bracamod.geo.jpa.repository.StateRepository;
-import com.bracamod.geo.test.CucumberStepDefinitions;
+import static org.junit.Assert.assertEquals;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.client.RestTemplate;
 import com.bracamod.geo.entity.State;
+import com.bracamod.geo.test.CucumberStepDefinitions;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 
 public class StateFeature  extends CucumberStepDefinitions{
 	
-	@Autowired
-	private StateRepository stateRepository;
+	private ResponseEntity<State> response;
 	
+	// @When("^the client calls state find by (\\d)$")
+	@When("^the client calls state find by$")
+	public void callFind() {
+		RestTemplate restTemplate = new RestTemplate();
+		
+		response = restTemplate.getForEntity("http://localhost:8080/geo/states/1", State.class);
 	
-	@When("^the client calls with id (\\d+)$")
-	public void when_i_feed_my_snake() {
-		try {
-			Optional<State> state = stateRepository.findById(1L);
-
-			System.out.println(state);
-		} catch (Exception ex) {
-			System.out.println(ex.toString());
-		}
 	}
  
-	@Then("^the client receives response status code of (\\d+)$")
-	public void receive_snek_snek()  {
-		System.out.println("then");
+	@Then("^the client receives response status$")
+	public void then()  {
+		
+		assertEquals(200,response.getStatusCode());
 	}
  
 }
