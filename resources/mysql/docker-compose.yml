@@ -30,4 +30,5 @@ volumes:
   
 networks:
   geo_network:
-    external: true
+    name: geo_network
+    #external: true
