@@ -6,8 +6,13 @@ import axios from 'axios';
 
 class State extends Component {
 
+  state = {
+    state: undefined
+  }
+
   constructor(props) {
     super(props);
+    console.log(this.props);
 
     this.clickState = this.clickState.bind(this);
   }
@@ -15,8 +20,8 @@ class State extends Component {
   clickState() {
     axios.get('http://localhost:8080/geo/cities/1')
       .then(res => {
-        /*const persons = res.data;
-        this.setState({ persons });*/
+        const state = res.data;
+        this.setState({ state });
         console.log(res);
       })
   }
@@ -24,11 +29,11 @@ class State extends Component {
   render() {
     return (
       <div className="card" id="state">
-        <img className="card-img-top" src={imagen} alt="Jalisco" />
+        <img className="card-img-top" src={imagen} alt={this.props.name} />
         <div className="card-body">
-          <h4 className="card-title">Jalisco</h4>
+          <h4 className="card-title">{this.props.name}</h4>
           <p className="card-text">
-            Lorem ipsum dolor sit amet, in  tewte afsteaewtaewt teawst aeset ttawetweat eaw tewat wet
+            {this.props.name}
                     </p>
           <button onClick={this.clickState} className="card-link btn btn-primary">Card link</button>
         </div>
@@ -37,5 +42,9 @@ class State extends Component {
   }
 
 }
+
+State.propTypes = {
+  name: PropTypes.element.isRequired
+};
 
 export default State;
