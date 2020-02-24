@@ -5,7 +5,8 @@ spring:
     active: default
   cloud:
     config:
-      uri: http://confsvr:8888
+      #uri: http://confsvr:8888
+      uri: http://localhost:8888
       enabled: true
       
 ####Eureka service discovery
@@ -16,4 +17,5 @@ eureka:
     register-with-eureka: true
     fetch-registry: true
     service-url :
-      defaultZone : http://eurekasvr:8761/eureka
+      #defaultZone : http://eurekasvr:8761/eureka
+      defaultZone : http://localhost:8761/eureka
