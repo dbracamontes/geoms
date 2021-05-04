@@ -3,6 +3,7 @@ package com.bracamod.geo.controller;
 import java.util.List;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Scope;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -14,7 +15,6 @@ import org.springframework.http.MediaType;
 import com.bracamod.geo.entity.City;
 import com.bracamod.geo.jpa.repository.CityRepository;
 import com.bracamod.geo.service.CityService;
-
 
 @RestController
 @RequestMapping(value = "/cities", produces=MediaType.APPLICATION_JSON_VALUE)
@@ -28,7 +28,13 @@ public class CityController {
 	
 	@GetMapping
 	public List<City> getAll(){	
-		return cityRepository.findAll(); 	
+		return cityRepository.findAll();
+	}
+	
+	private List<City> cities;
+	
+	public CityController() {
+		cities = getAll();
 	}
 	
 	@GetMapping("/{cityId}")
@@ -50,5 +56,8 @@ public class CityController {
 		
 		return new ResponseEntity<>(cities,status);
 	} 
+	
+	
+	
 
 }

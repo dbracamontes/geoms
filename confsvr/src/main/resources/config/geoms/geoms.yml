@@ -20,7 +20,10 @@ management.endpoint.health.show-details: always
 management.endpoints.web.exposure.include: health,info,metrics,httptrace
 management.endpoints.web.cors.allowed-origins: http://localhost:3000
 management.endpoints.web.cors.allowed-methods: GET,POST
-env: default
+#env: default
+minio.user: minio
+minio.accesskey: minio123
+minio.url: http://127.0.0.1:9001/minio/
 
 # Local Elasticsearch config
 spring.data.elasticsearch.repositories.enabled: true

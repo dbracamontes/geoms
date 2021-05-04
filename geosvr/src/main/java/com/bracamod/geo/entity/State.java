@@ -9,8 +9,11 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Index;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import org.hibernate.annotations.WhereJoinTable;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
@@ -28,6 +31,14 @@ public class State {
 	@JsonIgnore
 	@OneToMany(mappedBy = "state" ,fetch = FetchType.LAZY)
 	private List<City> cities;
+	
+	@OneToMany(fetch = FetchType.LAZY)
+	@JoinTable(
+		name = "image",
+	    joinColumns = {@JoinColumn(name = "ref_id")}
+	)
+	@WhereJoinTable(clause = "ref_table = 'state' ")
+	private List<Image> images;
 
 	public Long getId() {
 		return id;
@@ -61,7 +72,7 @@ public class State {
 
 	@Override
 	public String toString() {
-		return "State [id=" + id + ", name=" + name + "]";
+		return "State [id=" + id + ", name=" + name +", images = " + images + "]";
 	}
 
 }

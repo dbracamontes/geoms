@@ -12,8 +12,6 @@ class State extends Component {
 
   constructor(props) {
     super(props);
-    console.log(this.props);
-
     this.clickState = this.clickState.bind(this);
   }
 
@@ -23,6 +21,7 @@ class State extends Component {
         const state = res.data;
         this.setState({ state });
         console.log(res);
+        console.log("state" + state);
       })
   }
 
